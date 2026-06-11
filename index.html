@@ -1018,7 +1018,28 @@ function konfirmasiKembali() {
 }
 
 function kembaliDashboard() {
-  henti// ── INIT ──────────────────────────────────────────────────────
+  hentiTimer();
+}
+
+function doLogout() {
+  if (confirm("Keluar dari sistem ujian?")) {
+    hentiTimer();
+    hapusState();
+    state = {
+      kode:"", nama:"", prodi:"",
+      status:{TPA:"BELUM",TKD:"BELUM",MINAT:"BELUM"},
+      durasi:{TPA:60,TKD:45,MINAT:20},
+      waktu_tutup:"14:00",
+      sesiAktif:null, soalList:[], soalIndex:0, jawaban:{},
+      timerInterval:null, timerSisa:0, timerMulai:null
+    };
+    document.getElementById("input-kode").value = "";
+    document.getElementById("header-peserta").style.display = "none";
+    showPage("page-login");
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────────────
 // Soal tidak di-cache → selalu ke dashboard dulu
 // Jawaban & timer dipulihkan saat peserta klik Lanjutkan
 (function() {
