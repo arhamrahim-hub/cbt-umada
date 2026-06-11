@@ -460,7 +460,7 @@ function tampilSoal(idx){
   // ── Gambar soal
   if(soal.gambar_soal){
     html+=`<div class="soal-gambar">
-      <img src="https://drive.google.com/uc?id=${soal.gambar_soal}" alt="Gambar soal"
+      <img src="${soal.gambar_soal}" alt="Gambar soal"
         onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
       <div class="soal-gambar-error" style="display:none">⚠ Gambar tidak dapat dimuat</div>
     </div>`;
